@@ -58,8 +58,27 @@ HAVING SUM(o.quantity) > 1
 ORDER BY total_quantity ASC;
 
 
---8.Retrieve al orders where the total amount exceeds $20.
+--8.Retrieve all orders where the total amount exceeds $20.
+SELECT * FROM Customers;
+SELECT * FROM Books;
+SELECT * FROM Orders;
+
+SELECT order_id,total_amount
+FROM Orders
+WHERE total_amount > 20
+ORDER BY order_id DESC;
+
+
 --9.Find the book with the lowest stock
+SELECT * FROM Books;
+
+SELECT book_id, title, stock
+FROM Books
+WHERE stock = (SELECT MIN(stock) FROM Books)
+ORDER BY stock ASC
+LIMIT 1;
+
+
 --10.Calculate the total revenue generated from all orders
 
 
